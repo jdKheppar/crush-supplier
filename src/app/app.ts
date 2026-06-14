@@ -26,25 +26,25 @@ export class App {
       category: 'Building Material',
       title: 'Regular Crush | Pan Crush | C Class | 5 mm TO 10 mm',
       detail: 'Fine regular crush for plaster, flooring, and finishing works.',
-      image: '/assets/product-pan-crush.webp',
+      image: 'assets/product-pan-crush.webp',
     },
     {
       category: 'A Class',
       title: 'Plant Crush | Poni | A Class | 25mm to 38mm',
       detail: 'High-strength plant crush for foundations and RCC work.',
-      image: '/assets/product-poni.webp',
+      image: 'assets/product-poni.webp',
     },
     {
       category: 'Class A',
       title: 'A Class | Water Bound | 2 Inch To 3 Inch',
       detail: 'Road-grade water bound material for base and sub-base layers.',
-      image: '/assets/product-water-bound.webp',
+      image: 'assets/product-water-bound.webp',
     },
     {
       category: 'A Class',
       title: 'Plant Crush | Adhi Down | A Class | 16mm To 20mm',
       detail: 'Consistent graded aggregate for concrete and commercial builds.',
-      image: '/assets/product-adhi-down.webp',
+      image: 'assets/product-adhi-down.webp',
     },
   ];
 
@@ -52,17 +52,17 @@ export class App {
     {
       title: 'A Class',
       count: '5 Products',
-      image: '/assets/category-a-class.jpg',
+      image: 'assets/category-a-class.jpg',
     },
     {
       title: 'B Class',
       count: '3 Products',
-      image: '/assets/category-b-class.webp',
+      image: 'assets/category-b-class.webp',
     },
     {
       title: 'Building Material',
       count: '11 Products',
-      image: '/assets/category-building.jpg',
+      image: 'assets/category-building.jpg',
     },
   ];
 

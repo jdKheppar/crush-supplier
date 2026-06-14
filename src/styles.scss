@@ -293,7 +293,7 @@ input {
   min-height: 880px;
   background:
     linear-gradient(90deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.38)),
-    url('/assets/hero-quarry.jpeg') center / cover no-repeat;
+    url('../public/assets/hero-quarry.jpeg') center / cover no-repeat;
   display: flex;
   align-items: center;
 }
