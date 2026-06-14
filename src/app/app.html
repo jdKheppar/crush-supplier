@@ -1,33 +1,47 @@
-<header class="site-header">
+<header class="site-header" [class.menu-open]="mobileMenuOpen()">
   <div class="header-inner">
     <nav class="nav-group nav-group-left" aria-label="Primary navigation">
       <div class="menu-item has-menu">
-        <a href="#best-sellers">Buy Crush</a>
+        <a href="#best-sellers" (click)="closeMobileMenu()">Buy Crush</a>
         <button type="button" aria-label="Open Buy Crush menu" class="icon-button chevron"></button>
         <div class="dropdown" aria-label="Buy Crush categories">
-          <a href="#categories">Building Material</a>
-          <a href="#categories">A Class</a>
-          <a href="#categories">B Class</a>
-          <a href="#categories">C Class</a>
-          <a href="#categories">Road Material</a>
+          <a href="#categories" (click)="closeMobileMenu()">Building Material</a>
+          <a href="#categories" (click)="closeMobileMenu()">A Class</a>
+          <a href="#categories" (click)="closeMobileMenu()">B Class</a>
+          <a href="#categories" (click)="closeMobileMenu()">C Class</a>
+          <a href="#categories" (click)="closeMobileMenu()">Road Material</a>
         </div>
       </div>
-      <a href="#footer">Blog</a>
+      <a href="#best-sellers" (click)="closeMobileMenu()">Products</a>
+      <a href="#service" (click)="closeMobileMenu()">Delivery</a>
     </nav>
 
-    <a class="brand" href="#" aria-label="Crush Supplier home">
+    <a class="brand" href="#" aria-label="Crush Supplier home" (click)="closeMobileMenu()">
       <img src="/assets/sargodha-logo.png" alt="sargodha crush" />
     </a>
 
+    <button
+      type="button"
+      class="mobile-toggle"
+      aria-label="Toggle site navigation"
+      [attr.aria-expanded]="mobileMenuOpen()"
+      (click)="toggleMobileMenu()"
+    >
+      <span></span>
+    </button>
+
     <nav class="nav-group nav-group-right" aria-label="Secondary navigation">
-      <a href="#about">About</a>
-      <a href="#footer">Contact</a>
-      <a class="cart-link" href="#best-sellers" aria-label="View Shopping Cart, empty">
-        <span class="cart-count">0</span>
-        <span class="cart-icon" aria-hidden="true"></span>
-      </a>
-      <a class="account-link" href="#footer" aria-label="Account icon link">
-        <span aria-hidden="true"></span>
+      <a href="#about" (click)="closeMobileMenu()">About</a>
+      <a href="#contact" (click)="closeMobileMenu()">Contact</a>
+      <a class="header-cta header-cta-call" [href]="callHref" (click)="closeMobileMenu()">Call Now</a>
+      <a
+        class="header-cta header-cta-whatsapp"
+        [href]="whatsappHref"
+        target="_blank"
+        rel="noopener"
+        (click)="closeMobileMenu()"
+      >
+        WhatsApp
       </a>
     </nav>
   </div>
@@ -37,39 +51,56 @@
   <section class="hero" aria-label="Premium crushed stone and gravel">
     <div class="hero-content">
       <h1>Premium crushed stone and gravel for any project.</h1>
-      <a class="button button-dark" href="#best-sellers">Shop Now</a>
+      <div class="hero-actions">
+        <a class="button button-dark" href="#best-sellers">Browse Products</a>
+        <a class="button button-light" [href]="whatsappHref" target="_blank" rel="noopener">
+          Get Bulk Quote
+        </a>
+      </div>
+      <div class="trust-strip" aria-label="Supplier guarantees">
+        @for (signal of trustSignals; track signal) {
+          <span>{{ signal }}</span>
+        }
+      </div>
     </div>
   </section>
 
   <section class="split-section split-section-first" id="about">
     <figure class="section-image">
-      <img src="/assets/crushed-stone-plant.jpg" alt="crushed stone quarry plant" />
+      <img
+        src="/assets/crushed-stone-plant.jpg"
+        alt="crushed stone quarry plant"
+        loading="lazy"
+      />
     </figure>
     <div class="section-copy">
-      <p class="eyebrow">Our High Qualiy Crush</p>
+      <p class="eyebrow">Our High Quality Crush</p>
       <h2>Crushed Stone</h2>
       <p>
         We are a high-strength Sargodha Crush supplier in Punjab, Pakistan, providing
-        premium-quality crushed stone in all required sizes at factory wholesale rates with
-        direct delivery across Punjab and no middlemen involved. Our Sargodha crushed stone is
-        widely used for house construction, commercial buildings, road projects, and large-scale
-        infrastructure development, ensuring superior strength and durability.
+        premium-quality crushed stone in all required sizes at factory wholesale rates with direct
+        delivery across Punjab and no middlemen involved. Our Sargodha crushed stone is widely used
+        for house construction, commercial buildings, road projects, and large-scale infrastructure
+        development, ensuring superior strength and durability.
       </p>
       <p>
-        We strictly maintain guaranteed quality, accurate quantity, and on-time delivery, making
-        us a trusted choice for contractors, engineers, and builders across Punjab.
+        We strictly maintain guaranteed quality, accurate quantity, and on-time delivery, making us
+        a trusted choice for contractors, engineers, and builders across Punjab.
       </p>
       <p>
         We offer all standard Sargodha crush sizes, including Poni, Adhi Full, Adhi Down (1/2 inch
         down), 3 Sutar, and Pan Crush, suitable for every stage of construction work.
       </p>
-      <a class="button button-dark" href="#best-sellers">Shop now</a>
+      <div class="button-row">
+        <a class="button button-dark" href="#best-sellers">Shop now</a>
+        <a class="button button-outline" [href]="callHref">Call Supplier</a>
+      </div>
     </div>
   </section>
 
-  <section class="split-section split-section-alt">
+  <section class="split-section split-section-alt" id="service">
     <div class="section-copy">
-      <p class="eyebrow">Indulge in Luxury</p>
+      <p class="eyebrow">Road and Building Material</p>
       <h2>Water bound subbase &amp; base course Aggregate</h2>
       <p>
         We also supply standard quality Water Bound, Base Course, and Sub Base material in accurate
@@ -77,10 +108,19 @@
         products are strong, reliable, and trusted for roads, buildings, foundations, and
         infrastructure work.
       </p>
+      <ul class="service-list" aria-label="Delivery service features">
+        <li>Bulk order handling for contractors and site supervisors</li>
+        <li>Material delivered directly from factory to your location</li>
+        <li>Clear size guidance before dispatch</li>
+      </ul>
       <a class="button button-dark" href="#categories">Discover</a>
     </div>
     <figure class="section-image">
-      <img src="/assets/conveyor-aggregate.png" alt="aggregate pouring from conveyor belt" />
+      <img
+        src="/assets/conveyor-aggregate.png"
+        alt="aggregate pouring from conveyor belt"
+        loading="lazy"
+      />
     </figure>
   </section>
 
@@ -93,14 +133,19 @@
     <div class="product-grid">
       @for (product of bestSellers; track product.title) {
         <article class="product-card">
-          <a class="product-image" href="#footer" aria-label="Read more about {{ product.title }}">
-            <img [src]="product.image" [alt]="product.title" />
-            <span>Quick View</span>
+          <a class="product-image" href="#contact" aria-label="Request quote for {{ product.title }}">
+            <img [src]="product.image" [alt]="product.title" loading="lazy" />
+            <span>Request Quote</span>
           </a>
           <p class="product-category">{{ product.category }}</p>
           <h3>
-            <a href="#footer">{{ product.title }}</a>
+            <a href="#contact">{{ product.title }}</a>
           </h3>
+          <p class="product-detail">{{ product.detail }}</p>
+          <div class="product-actions">
+            <a [href]="whatsappHref" target="_blank" rel="noopener">WhatsApp Quote</a>
+            <a [href]="callHref">Call</a>
+          </div>
         </article>
       }
     </div>
@@ -108,27 +153,37 @@
 
   <section class="bulk-cta">
     <h2>Need Bulk Aggregate? Call Us Today for Competitive Pricing!</h2>
-    <a class="button button-dark" href="#footer">Discover</a>
+    <p>Share your material type, quantity, and delivery city for fast rate confirmation.</p>
+    <div class="button-row button-row-center">
+      <a class="button button-dark" [href]="callHref">Call {{ primaryPhone }}</a>
+      <a class="button button-outline" [href]="whatsappHref" target="_blank" rel="noopener">
+        WhatsApp Quote
+      </a>
+    </div>
   </section>
 
   <section class="deal-strip">
     <div class="deal-copy">
-      <p>Find the best Deals of Crush all over Punjab Pakistan</p>
+      <p>Find the best deals of crush all over Punjab Pakistan</p>
       <a class="button button-dark" href="#best-sellers">Shop Now</a>
     </div>
-    <img src="/assets/deals-aggregate.png" alt="different crush aggregate samples" />
+    <img src="/assets/deals-aggregate.png" alt="different crush aggregate samples" loading="lazy" />
   </section>
 
   <section class="category-section" id="categories">
     <div class="section-title">
-      <p class="eyebrow">Veraity of crush</p>
+      <p class="eyebrow">Variety of crush</p>
       <h2>Shop by Category</h2>
     </div>
 
     <div class="category-grid">
       @for (category of categories; track category.title) {
-        <a class="category-card" href="#best-sellers" aria-label="Visit product category {{ category.title }}">
-          <img [src]="category.image" [alt]="category.title" />
+        <a
+          class="category-card"
+          href="#best-sellers"
+          aria-label="Visit product category {{ category.title }}"
+        >
+          <img [src]="category.image" [alt]="category.title" loading="lazy" />
           <span>
             <strong>{{ category.title }}</strong>
             <small>{{ category.count }}</small>
@@ -137,19 +192,51 @@
       }
     </div>
   </section>
+
+  <section class="quote-section" id="contact">
+    <div class="quote-copy">
+      <p class="eyebrow">Fast Delivery Across Punjab</p>
+      <h2>Get a price for your site</h2>
+      <p>
+        For the quickest quote, send your required crush size, estimated quantity, delivery city,
+        and site unloading preference.
+      </p>
+    </div>
+    <div class="quote-card">
+      <dl>
+        <div>
+          <dt>Call</dt>
+          <dd>
+            <a [href]="callHref">{{ primaryPhone }}</a>
+          </dd>
+        </div>
+        <div>
+          <dt>Alternate</dt>
+          <dd>{{ secondaryPhone }}</dd>
+        </div>
+        <div>
+          <dt>Coverage</dt>
+          <dd>Sargodha, Lahore, Faisalabad, Gujranwala, and wider Punjab</dd>
+        </div>
+      </dl>
+      <a class="button button-dark" [href]="whatsappHref" target="_blank" rel="noopener">
+        Send WhatsApp Inquiry
+      </a>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer" id="footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <img src="/assets/footer-logo.png" alt="Crush Supplier" />
+      <img src="/assets/footer-logo.png" alt="Crush Supplier" loading="lazy" />
       <p>Sargodha Crush Supplier. Owned by Engr. Khurram Shahzad</p>
     </div>
 
     <div>
       <h3>Customer care</h3>
-      <p><strong>Call:</strong> 03057257934</p>
-      <p><strong>Call:</strong> 03424357934</p>
+      <p><strong>Call:</strong> <a [href]="callHref">{{ primaryPhone }}</a></p>
+      <p><strong>Call:</strong> {{ secondaryPhone }}</p>
     </div>
 
     <div>
@@ -161,8 +248,9 @@
 
     <div>
       <h3>Useful links</h3>
-      <a href="#footer">FAQ</a>
-      <a href="#footer">Wholesale</a>
+      <a href="#best-sellers">Products</a>
+      <a href="#contact">Wholesale</a>
+      <a href="#contact">Bulk Quote</a>
     </div>
   </div>
 
@@ -171,3 +259,8 @@
     <p>Created by: <a href="https://www.linkedin.com/in/arslannaseer/">Arslan Naseer</a></p>
   </div>
 </footer>
+
+<div class="sticky-contact" aria-label="Quick contact">
+  <a [href]="callHref">Call Now</a>
+  <a [href]="whatsappHref" target="_blank" rel="noopener">WhatsApp</a>
+</div>
