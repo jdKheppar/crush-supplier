@@ -1,0 +1,173 @@
+<header class="site-header">
+  <div class="header-inner">
+    <nav class="nav-group nav-group-left" aria-label="Primary navigation">
+      <div class="menu-item has-menu">
+        <a href="#best-sellers">Buy Crush</a>
+        <button type="button" aria-label="Open Buy Crush menu" class="icon-button chevron"></button>
+        <div class="dropdown" aria-label="Buy Crush categories">
+          <a href="#categories">Building Material</a>
+          <a href="#categories">A Class</a>
+          <a href="#categories">B Class</a>
+          <a href="#categories">C Class</a>
+          <a href="#categories">Road Material</a>
+        </div>
+      </div>
+      <a href="#footer">Blog</a>
+    </nav>
+
+    <a class="brand" href="#" aria-label="Crush Supplier home">
+      <img src="/assets/sargodha-logo.png" alt="sargodha crush" />
+    </a>
+
+    <nav class="nav-group nav-group-right" aria-label="Secondary navigation">
+      <a href="#about">About</a>
+      <a href="#footer">Contact</a>
+      <a class="cart-link" href="#best-sellers" aria-label="View Shopping Cart, empty">
+        <span class="cart-count">0</span>
+        <span class="cart-icon" aria-hidden="true"></span>
+      </a>
+      <a class="account-link" href="#footer" aria-label="Account icon link">
+        <span aria-hidden="true"></span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-label="Premium crushed stone and gravel">
+    <div class="hero-content">
+      <h1>Premium crushed stone and gravel for any project.</h1>
+      <a class="button button-dark" href="#best-sellers">Shop Now</a>
+    </div>
+  </section>
+
+  <section class="split-section split-section-first" id="about">
+    <figure class="section-image">
+      <img src="/assets/crushed-stone-plant.jpg" alt="crushed stone quarry plant" />
+    </figure>
+    <div class="section-copy">
+      <p class="eyebrow">Our High Qualiy Crush</p>
+      <h2>Crushed Stone</h2>
+      <p>
+        We are a high-strength Sargodha Crush supplier in Punjab, Pakistan, providing
+        premium-quality crushed stone in all required sizes at factory wholesale rates with
+        direct delivery across Punjab and no middlemen involved. Our Sargodha crushed stone is
+        widely used for house construction, commercial buildings, road projects, and large-scale
+        infrastructure development, ensuring superior strength and durability.
+      </p>
+      <p>
+        We strictly maintain guaranteed quality, accurate quantity, and on-time delivery, making
+        us a trusted choice for contractors, engineers, and builders across Punjab.
+      </p>
+      <p>
+        We offer all standard Sargodha crush sizes, including Poni, Adhi Full, Adhi Down (1/2 inch
+        down), 3 Sutar, and Pan Crush, suitable for every stage of construction work.
+      </p>
+      <a class="button button-dark" href="#best-sellers">Shop now</a>
+    </div>
+  </section>
+
+  <section class="split-section split-section-alt">
+    <div class="section-copy">
+      <p class="eyebrow">Indulge in Luxury</p>
+      <h2>Water bound subbase &amp; base course Aggregate</h2>
+      <p>
+        We also supply standard quality Water Bound, Base Course, and Sub Base material in accurate
+        sizes for both domestic and commercial construction projects across Punjab, Pakistan. Our
+        products are strong, reliable, and trusted for roads, buildings, foundations, and
+        infrastructure work.
+      </p>
+      <a class="button button-dark" href="#categories">Discover</a>
+    </div>
+    <figure class="section-image">
+      <img src="/assets/conveyor-aggregate.png" alt="aggregate pouring from conveyor belt" />
+    </figure>
+  </section>
+
+  <section class="products-section" id="best-sellers">
+    <div class="section-title">
+      <p class="eyebrow">Check out our</p>
+      <h2>Best Sellers</h2>
+    </div>
+
+    <div class="product-grid">
+      @for (product of bestSellers; track product.title) {
+        <article class="product-card">
+          <a class="product-image" href="#footer" aria-label="Read more about {{ product.title }}">
+            <img [src]="product.image" [alt]="product.title" />
+            <span>Quick View</span>
+          </a>
+          <p class="product-category">{{ product.category }}</p>
+          <h3>
+            <a href="#footer">{{ product.title }}</a>
+          </h3>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="bulk-cta">
+    <h2>Need Bulk Aggregate? Call Us Today for Competitive Pricing!</h2>
+    <a class="button button-dark" href="#footer">Discover</a>
+  </section>
+
+  <section class="deal-strip">
+    <div class="deal-copy">
+      <p>Find the best Deals of Crush all over Punjab Pakistan</p>
+      <a class="button button-dark" href="#best-sellers">Shop Now</a>
+    </div>
+    <img src="/assets/deals-aggregate.png" alt="different crush aggregate samples" />
+  </section>
+
+  <section class="category-section" id="categories">
+    <div class="section-title">
+      <p class="eyebrow">Veraity of crush</p>
+      <h2>Shop by Category</h2>
+    </div>
+
+    <div class="category-grid">
+      @for (category of categories; track category.title) {
+        <a class="category-card" href="#best-sellers" aria-label="Visit product category {{ category.title }}">
+          <img [src]="category.image" [alt]="category.title" />
+          <span>
+            <strong>{{ category.title }}</strong>
+            <small>{{ category.count }}</small>
+          </span>
+        </a>
+      }
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="/assets/footer-logo.png" alt="Crush Supplier" />
+      <p>Sargodha Crush Supplier. Owned by Engr. Khurram Shahzad</p>
+    </div>
+
+    <div>
+      <h3>Customer care</h3>
+      <p><strong>Call:</strong> 03057257934</p>
+      <p><strong>Call:</strong> 03424357934</p>
+    </div>
+
+    <div>
+      <h3>Follow us</h3>
+      <a href="https://www.facebook.com/SargodhaCrush/">Facebook</a>
+      <a href="https://www.instagram.com/sargodha_crush_wholesale/">Instagram</a>
+      <a href="https://www.youtube.com/@sargodhacrush">YouTube</a>
+    </div>
+
+    <div>
+      <h3>Useful links</h3>
+      <a href="#footer">FAQ</a>
+      <a href="#footer">Wholesale</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>Copyright &copy; 2026 Crush Supplier | Powered by Crush Supplier</p>
+    <p>Created by: <a href="https://www.linkedin.com/in/arslannaseer/">Arslan Naseer</a></p>
+  </div>
+</footer>
