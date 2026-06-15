@@ -17,7 +17,10 @@
     </nav>
 
     <a class="brand" href="#" aria-label="Crush Supplier home" (click)="closeMobileMenu()">
-      <img src="assets/sargodha-logo.png" alt="sargodha crush" />
+      <img
+        src="assets/sargodha-premium-aggregates-logo.jpeg"
+        alt="Sargodha Crush Premium Aggregates logo"
+      />
     </a>
 
     <button
@@ -211,8 +214,14 @@
           </dd>
         </div>
         <div>
-          <dt>Alternate</dt>
-          <dd>{{ secondaryPhone }}</dd>
+          <dt>WhatsApp</dt>
+          <dd>
+            <a [href]="whatsappHref" target="_blank" rel="noopener">{{ primaryPhone }}</a>
+          </dd>
+        </div>
+        <div>
+          <dt>Address</dt>
+          <dd>{{ businessAddress }}</dd>
         </div>
         <div>
           <dt>Coverage</dt>
@@ -229,14 +238,22 @@
 <footer class="site-footer" id="footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <img src="assets/footer-logo.png" alt="Crush Supplier" loading="lazy" />
+      <img
+        src="assets/sargodha-premium-aggregates-logo.jpeg"
+        alt="Sargodha Crush Premium Aggregates logo"
+        loading="lazy"
+      />
       <p>Sargodha Crush Supplier. Owned by Engr. Khurram Shahzad</p>
     </div>
 
     <div>
       <h3>Customer care</h3>
       <p><strong>Call:</strong> <a [href]="callHref">{{ primaryPhone }}</a></p>
-      <p><strong>Call:</strong> {{ secondaryPhone }}</p>
+      <p>
+        <strong>WhatsApp:</strong>
+        <a [href]="whatsappHref" target="_blank" rel="noopener">{{ primaryPhone }}</a>
+      </p>
+      <p><strong>Address:</strong> {{ businessAddress }}</p>
     </div>
 
     <div>

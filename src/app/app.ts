@@ -7,11 +7,11 @@ import { Component, signal } from '@angular/core';
   styleUrl: './app.scss',
 })
 export class App {
-  protected readonly primaryPhone = '03057257934';
-  protected readonly secondaryPhone = '03424357934';
-  protected readonly callHref = 'tel:+923057257934';
+  protected readonly primaryPhone = '+92 300 6126774';
+  protected readonly businessAddress = 'Pull 111 Market Sargodha';
+  protected readonly callHref = 'tel:+923006126774';
   protected readonly whatsappHref =
-    'https://wa.me/923057257934?text=I%20need%20a%20bulk%20crush%20aggregate%20quote.';
+    'https://wa.me/923006126774?text=I%20need%20a%20bulk%20crush%20aggregate%20quote.';
   protected readonly mobileMenuOpen = signal(false);
 
   protected readonly trustSignals = [
